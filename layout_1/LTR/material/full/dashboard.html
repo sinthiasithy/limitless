@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
+
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="../../../../global_assets/css/icons/icomoon/styles.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script src="../../../../global_assets/js/main/jquery.min.js"></script>
+	<script src="../../../../global_assets/js/main/bootstrap.bundle.min.js"></script>
+	<script src="../../../../global_assets/js/plugins/loaders/blockui.min.js"></script>
+	<script src="../../../../global_assets/js/plugins/ui/ripple.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+	<script src="../../../../global_assets/js/plugins/visualization/d3/d3.min.js"></script>
+	<script src="../../../../global_assets/js/plugins/visualization/d3/d3_tooltip.js"></script>
+	<script src="../../../../global_assets/js/plugins/forms/styling/switchery.min.js"></script>
+	<script src="../../../../global_assets/js/plugins/ui/moment/moment.min.js"></script>
+	<script src="../../../../global_assets/js/plugins/pickers/daterangepicker.js"></script>
+
+	<script src="assets/js/app.js"></script>
+	<script src="../../../../global_assets/js/demo_pages/dashboard.js"></script>
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/streamgraph.js"></script>
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/sparklines.js"></script>
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/lines.js"></script>	
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/areas.js"></script>
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/donuts.js"></script>
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/bars.js"></script>
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/progress.js"></script>
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/heatmaps.js"></script>
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/pies.js"></script>
+	<script src="../../../../global_assets/js/demo_charts/pages/dashboard/light/bullets.js"></script>
+
+	<!-- /theme JS files -->
+	<style>
+		.btn-dashboard {
+			border: none;
+			padding: 32px 10px;
+			width: 95%;
+			height: 100px;
+			font-family: "Roboto,sans-serif";
+			font-size: 16px;
+			font-weight: bold;
+			text-transform: uppercase;
+			border-radius: 10px;
+			cursor: pointer;
+			color: #fff;
+			background-size: 200%;
+			transition: 0.6s;
+			display: inline-block;
+			text-align: center;
+			display: inline-block;
+			margin-bottom: 2rem;
+		}
+
+		/*================================================
+		Boxes CSS
+		=================================================*/
+		.boxes-area {
+		position: relative;
+		padding-bottom: 80px;
+		margin-top: -130px;
+		z-index: 1;
+		}
+
+		.hosting-boxes-area {
+		background-color: #032b8d;
+		margin-top: 0;
+		}
+
+		.hosting-boxes-area .single-box {
+		padding-left: 15px;
+		padding-right: 15px;
+		}
+
+		.single-box {
+		border: 1px dashed #cdf1d8;
+		padding: 10px 5px 10px 1px;
+		position: relative;
+		z-index: 1;
+		border-radius: 5px;
+		background: #ffffff;
+		-webkit-box-shadow: 0 0 10px rgba(72, 69, 224, 0.1);
+				box-shadow: 0 0 10px rgba(72, 69, 224, 0.1);
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+		}
+
+		.single-box .icon {
+			display: inline-block;
+			text-align: center;
+			width: 35px;
+			height: 35px;
+			line-height: 35px;
+			border-radius: 50%;
+			color: #44ce6f;
+			-webkit-transition: 0.5s;
+			transition: 0.5s;
+		}
+
+		.single-box h3 {
+			font-size: 14px;
+			border-left: 2px solid #000;
+			margin-top: 5px;
+			margin-bottom: 2px;
+			-webkit-transition: 0.5s;
+			transition: 0.5s;
+			padding-left: 10px;
+			text-align: left;
+		}
+
+		.single-box::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		border-radius: 5px;
+		height: 100%;
+		background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%);
+		z-index: -1;
+		opacity: 0;
+		visibility: hidden;
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+		}
+
+		.single-box p {
+		-webkit-transition: 0.5s;
+		transition: 0.5s;
+		}
+
+		.single-box.bg-f78acb {
+		border-color: rgba(247, 138, 203, 0.3);
+		}
+
+		.single-box.bg-f78acb .icon {
+		color: #f78acb;
+		border: 1px solid #f78acb;
+		}
+
+		.single-box.bg-c679e3 {
+		border-color: #edc3fc;
+		border: 1px solid #edc3fc;
+		}
+
+		.single-box.bg-c679e3 .icon {
+		color: #c679e3;
+		border: 1px solid #c679e3;
+		}
+
+		.single-box.bg-eb6b3d {
+		border-color: rgba(235, 107, 61, 0.3);
+		}
+
+		.single-box.bg-eb6b3d .icon {
+		color: #eb6b3d;
+		border: 1px solid #eb6b3d;
+		}
+
+		.single-box:hover {
+		-webkit-transform: translateY(-9px);
+				transform: translateY(-9px);
+		border-color: transparent;
+		}
+
+		.single-box:hover::before {
+		opacity: 1;
+		visibility: visible;
+		}
+
+		.single-box:hover .icon {
+		background: #ffffff;
+		color: #44ce6f;
+		}
+
+
+		.single-box:hover h3, .single-box:hover p {
+		color: #ffffff;
+		border-left: 2px solid #fff;
+		}
+
+		.single-box:hover.bg-f78acb .icon {
+		color: #f78acb;
+		}
+
+		.single-box:hover.bg-c679e3 .icon {
+		color: #c679e3;
+		}
+
+		.single-box:hover.bg-eb6b3d .icon {
+		color: #eb6b3d;
+		}
+
+
+
+		.services-content .section-title {
+			text-align: start;
+			margin-bottom: 5px;
+		}
+		.section-title {
+			text-align: left;
+			margin-bottom: 2px;
+		}
+		*, ::after, ::before {
+			box-sizing: border-box;
+		}
+		user agent stylesheet
+		div {
+			display: block;
+		}
+		.row {
+			--bs-gutter-x: 1.5rem;
+			--bs-gutter-y: 0;
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: calc(-1 * var(--bs-gutter-y));
+			margin-right: calc(-.5 * var(--bs-gutter-x));
+			margin-left: calc(-.5 * var(--bs-gutter-x));
+		}
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			padding: 0;
+			margin: 0;
+			font-size: 14px;
+			background-color: #f7fafd;
+		}
+
+		.bar {
+			height: 5px;
+			width: 90px;
+			background: #cdf1d8;
+			margin: 10px left;
+			position: relative;
+			border-radius: 30px;
+		}
+
+		.bar::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -2.7px;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background: #00ff00;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+			animation-name: example;
+			animation-direction: alternate-reverse;
+
+        }
+
+		.card-icon{
+			display: inline-block;
+			text-align: center;
+			width: 45px;
+			height: 45px;
+			line-height: 45px;
+			color: #fff;
+			background-color: #44ce6f;
+			-webkit-transition: 0.5s;
+			transition: 0.5s;
+			font-size: 30px;
+			margin: 0;
+		}
+
+		h6{
+			font-size: 12px;	
+			text-transform: capitalize;
+		}
+
+		.font-color-f78acb{
+			background-color: #ff0800;
+		}
+
+		.font-color-c679e3{
+			background-color: #c679e3;
+		}
+
+		.font-color-eb6b3d{
+			background-color: #eb6b3d;
+		}
+
+		.bg-color-44ce6f{
+			background-color: #44ce6f;
+		}
+		.progress {
+              width: 150px;
+              height: 150px;
+              background: none;
+              position: relative;
+              box-shadow: none;
+            }
+            
+            .progress::after {
+              content: "";
+              width: 100%;
+              height: 100%;
+              border-radius: 50%;
+              border: 6px solid #eee;
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+            
+            .progress>span {
+              width: 50%;
+              height: 100%;
+              overflow: hidden;
+              position: absolute;
+              top: 0;
+              z-index: 1;
+            }
+            
+            .progress .progress-left {
+              left: 0;
+            }
+            
+            .progress .progress-bar {
+              width: 100%;
+              height: 100%;
+              background: none;
+              border-width: 6px;
+              border-style: solid;
+              position: absolute;
+              top: 0;
+            }
+            
+            .progress .progress-left .progress-bar {
+              left: 100%;
+              border-top-right-radius: 80px;
+              border-bottom-right-radius: 80px;
+              border-left: 0;
+              -webkit-transform-origin: center left;
+              transform-origin: center left;
+            }
+            
+            .progress .progress-right {
+              right: 0;
+            }
+            
+            .progress .progress-right .progress-bar {
+              left: -100%;
+              border-top-left-radius: 80px;
+              border-bottom-left-radius: 80px;
+              border-right: 0;
+              -webkit-transform-origin: center right;
+              transform-origin: center right;
+            }
+            
+            .progress .progress-value {
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+    
+
+	</style>
+</head>
+
+<body>
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-expand-md navbar-dark bg-indigo navbar-static">
+		<div class="navbar-brand">
+			<a href="index.html" class="d-inline-block">
+				<img src="../../../../global_assets/images/logo_light.png" alt="">
+			</a>
+		</div>
+
+		<div class="d-md-none">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+				<i class="icon-tree5"></i>
+			</button>
+			<button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+				<i class="icon-paragraph-justify3"></i>
+			</button>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navbar-mobile">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a href="#" class="navbar-nav-link sidebar-control sidebar-main-toggle d-none d-md-block">
+						<i class="icon-paragraph-justify3"></i>
+					</a>
+				</li>
+			</ul>
+
+			<span class="navbar-text ml-md-3">
+				<span class="badge badge-mark border-orange-300 mr-2"></span>
+				Morning, Victoria!
+			</span>
+
+			<ul class="navbar-nav ml-md-auto">
+				<li class="nav-item dropdown">
+					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-make-group mr-2"></i>
+						Connect
+					</a>
+
+					<div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
+						<div class="dropdown-content-body p-2">
+							<div class="row no-gutters">
+								<div class="col-12 col-sm-4">
+									<a href="#" class="d-block text-default text-center ripple-dark rounded p-3">
+										<i class="icon-github4 icon-2x"></i>
+										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Github</div>
+									</a>
+
+									<a href="#" class="d-block text-default text-center ripple-dark rounded p-3">
+										<i class="icon-dropbox text-blue-400 icon-2x"></i>
+										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Dropbox</div>
+									</a>
+								</div>
+								
+								<div class="col-12 col-sm-4">
+									<a href="#" class="d-block text-default text-center ripple-dark rounded p-3">
+										<i class="icon-dribbble3 text-pink-400 icon-2x"></i>
+										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Dribbble</div>
+									</a>
+
+									<a href="#" class="d-block text-default text-center ripple-dark rounded p-3">
+										<i class="icon-google-drive text-success-400 icon-2x"></i>
+										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Drive</div>
+									</a>
+								</div>
+
+								<div class="col-12 col-sm-4">
+									<a href="#" class="d-block text-default text-center ripple-dark rounded p-3">
+										<i class="icon-twitter text-info-400 icon-2x"></i>
+										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Twitter</div>
+									</a>
+
+									<a href="#" class="d-block text-default text-center ripple-dark rounded p-3">
+										<i class="icon-youtube text-danger icon-2x"></i>
+										<div class="font-size-sm font-weight-semibold text-uppercase mt-2">Youtube</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
+						<i class="icon-pulse2 mr-2"></i>
+						Activity
+					</a>
+					
+					<div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
+						<div class="dropdown-content-header">
+							<span class="font-size-sm line-height-sm text-uppercase font-weight-semibold">Latest activity</span>
+							<a href="#" class="text-default"><i class="icon-search4 font-size-base"></i></a>
+						</div>
+
+						<div class="dropdown-content-body dropdown-scrollable">
+							<ul class="media-list">
+								<li class="media">
+									<div class="mr-3">
+										<a href="#" class="btn bg-success-400 rounded-round btn-icon"><i class="icon-mention"></i></a>
+									</div>
+
+									<div class="media-body">
+										<a href="#">Taylor Swift</a> mentioned you in a post "Angular JS. Tips and tricks"
+										<div class="font-size-sm text-muted mt-1">4 minutes ago</div>
+									</div>
+								</li>
+
+								<li class="media">
+									<div class="mr-3">
+										<a href="#" class="btn bg-pink-400 rounded-round btn-icon"><i class="icon-paperplane"></i></a>
+									</div>
+									
+									<div class="media-body">
+										Special offers have been sent to subscribed users by <a href="#">Donna Gordon</a>
+										<div class="font-size-sm text-muted mt-1">36 minutes ago</div>
+									</div>
+								</li>
+
+								<li class="media">
+									<div class="mr-3">
+										<a href="#" class="btn bg-blue rounded-round btn-icon"><i class="icon-plus3"></i></a>
+									</div>
+									
+									<div class="media-body">
+										<a href="#">Chris Arney</a> created a new <span class="font-weight-semibold">Design</span> branch in <span class="font-weight-semibold">Limitless</span> repository
+										<div class="font-size-sm text-muted mt-1">2 hours ago</div>
+									</div>
+								</li>
+
+								<li class="media">
+									<div class="mr-3">
+										<a href="#" class="btn bg-purple-300 rounded-round btn-icon"><i class="icon-truck"></i></a>
+									</div>
+									
+									<div class="media-body">
+										Shipping cost to the Netherlands has been reduced, database updated
+										<div class="font-size-sm text-muted mt-1">Feb 8, 11:30</div>
+									</div>
+								</li>
+
+								<li class="media">
+									<div class="mr-3">
+										<a href="#" class="btn bg-warning-400 rounded-round btn-icon"><i class="icon-comment"></i></a>
+									</div>
+									
+									<div class="media-body">
+										New review received on <a href="#">Server side integration</a> services
+										<div class="font-size-sm text-muted mt-1">Feb 2, 10:20</div>
+									</div>
+								</li>
+
+								<li class="media">
+									<div class="mr-3">
+										<a href="#" class="btn bg-teal-400 rounded-round btn-icon"><i class="icon-spinner11"></i></a>
+									</div>
+									
+									<div class="media-body">
+										<strong>January, 2018</strong> - 1320 new users, 3284 orders, $49,390 revenue
+										<div class="font-size-sm text-muted mt-1">Feb 1, 05:46</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<div class="dropdown-content-footer bg-light">
+							<a href="#" class="font-size-sm line-height-sm text-uppercase font-weight-semibold text-grey mr-auto">All activity</a>
+							<div>
+								<a href="#" class="text-grey" data-popup="tooltip" title="Clear list"><i class="icon-checkmark3"></i></a>
+								<a href="#" class="text-grey ml-2" data-popup="tooltip" title="Settings"><i class="icon-gear"></i></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item">
+					<a href="#" class="navbar-nav-link">
+						<i class="icon-switch2"></i>
+						<span class="d-md-none ml-2">Logout</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /main navbar -->
+
+
+	<!-- Page content -->
+	<div class="page-content">
+
+		<!-- Main sidebar -->
+		
+		<!-- /main sidebar -->
+
+
+		<!-- Main content -->
+		<div class="content-wrapper">
+			
+	
+			<!-- Content area -->
+			<div class="content">
+				<div class="card mt-4">
+					<ul class="nav nav-tabs nav-tabs-bottom nav-justified mb-0">
+						<li class="nav-item"><a href="#tab-greige" class="nav-link active " data-toggle="tab"><i class="fa-solid fa-scroll text-blue "></i> Greige QC</a></li>
+						<li class="nav-item"><a href="#tab-dye" class="nav-link" data-toggle="tab"><i class="fa-solid fa-temperature-quarter text-blue"></i> Dyeing QC</a></li>
+						<li class="nav-item"><a href="#tab-cutting" class="nav-link" data-toggle="tab"><i class="fa-solid fa-scissors text-blue  "></i>  Cutting QC</a></li>
+						<li class="nav-item"><a href="#tab-print" class="nav-link" data-toggle="tab"><i class="fa-solid fa-palette text-blue "></i> Print QC</a></li>
+						<li class="nav-item"><a href="#tab-sewing" class="nav-link" data-toggle="tab"><i class="fa-brands fa-stripe-s text-blue "></i> Sewing QC</a></li>
+						<li class="nav-item"><a href="#tab-finish" class="nav-link" data-toggle="tab"><i class="fa-solid fa-square-check text-blue "></i> Finish QC</a></li>
+					</ul>
+	
+					<div class="tab-content card-body border-top-0 rounded-top-0 mb-0"> 
+						<div class="tab-pane fade show " id="tab-greige">
+							<div class="row">
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-eb6b3d text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-pie"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Greige QC Defect Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-c679e3 text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-line"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3> Greige QC Reports</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-tv"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Greige QC Tv Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-chart-simple"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Greige QC Summary Dashboard</h3>
+										</div>
+									</div>
+								</a>
+	
+							</div>
+
+							<div class="row mt-4">
+								<div class="col-sm-6 col-xl-3">
+									<div class="card card-body">
+										<div class="media">
+											<div class="mr-3 align-self-center">
+												<i class="fa-solid fa-scroll fa-3x fa-2x text-primary"></i>
+												
+											</div>
+				
+											<div class="media-body text-right">
+												<h3 id="totalCuttingGarments" class="font-weight-semibold mb-0 text-primary">2550 pcs</h3>
+												<span class="text-uppercase font-size-sm text-muted">Total QC Rolls</span>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<div class="col-sm-6 col-xl-3">
+									<div class="card card-body">
+										<div class="media">
+											<div class="mr-3 align-self-center">
+												<i class="fa-solid fa-check fa-3x fa-2x text-success"></i>
+											</div>
+				
+											<div class="media-body text-right">
+												<h3 id="totalSewingGarments" class="font-weight-semibold mb-0 text-success ">1000 pcs</h3>
+												<span class="text-uppercase font-size-sm text-muted">Total Pass Rolls</span>
+											</div>
+										</div>
+									</div>
+								</div>
+			
+								<div class="col-sm-6 col-xl-3">
+									<div class="card card-body">
+										<div class="media">
+											<div class="mr-3 align-self-center">
+												<i class="fas fa-exclamation-triangle card-icon font-color-eb6b3d fa-3x fa-2x text-blue"></i>
+											</div>
+				
+											<div class="media-body text-right">
+												<h3 id="totalSewingGarments" class="font-weight-semibold mb-0 text-warning">550 pcs</h3>
+												<span class="text-uppercase font-size-sm text-muted">Total Defected Rolls</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-xl-3">
+									<div class="card card-body">
+										<div class="media">
+											<div class="mr-3 align-self-center">
+												<i class="fa-regular fa-circle-xmark fa-3x fa-2x text-danger"></i>
+											</div>
+				
+											<div class="media-body text-right">
+												<h3 id="totalSewingGarments" class="font-weight-semibold mb-0 text-danger">2550 kg</h3>
+												<span class="text-uppercase font-size-sm text-muted">Total Rejected Weight</span>
+											</div>
+										</div>
+									</div>
+								</div>
+			
+								
+							</div>
+						</div>
+	
+						<div class="tab-pane fade active" id="tab-dye">
+							<div class="row">
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-eb6b3d text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-pie"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Dyeing Defect Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-c679e3 text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-line"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3> Dyeing QC Reports</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-tv"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Dyeing QC Tv Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-chart-simple"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Dyeing QC Summary Dashboard</h3>
+										</div>
+									</div>
+								</a>
+	
+							</div>
+
+							<div class="row mt-4">
+								<div class="col-sm-6 col-xl-2">
+									<div class="card card-body">
+										<div class="media">
+											<div class="mr-3 align-self-center">
+												<i class="fa-solid fa-scroll fa-3x fa-2x text-primary"></i>
+												
+											</div>
+				
+											<div class="media-body text-right">
+												<h3 id="totalCuttingGarments" class="font-weight-semibold mb-0 text-primary">2550 pcs</h3>
+												<span class="text-uppercase font-size-sm text-muted">Total QC Rolls</span>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+								<div class="col-sm-6 col-xl-2">
+									<div class="card card-body">
+										<div class="media">
+											<div class="mr-3 align-self-center">
+												<i class="fa-solid fa-check fa-3x fa-2x text-success"></i>
+											</div>
+				
+											<div class="media-body text-right">
+												<h3 id="totalSewingGarments" class="font-weight-semibold mb-0 text-success ">1000 pcs</h3>
+												<span class="text-uppercase font-size-sm text-muted">Total Pass Rolls</span>
+											</div>
+										</div>
+									</div>
+								</div>
+			
+								<div class="col-sm-6 col-xl-2">
+									<div class="card card-body">
+										<div class="media">
+											<div class="mr-3 align-self-center">
+												<i class="fas fa-exclamation-triangle card-icon font-color-eb6b3d fa-3x fa-2x text-blue"></i>
+											</div>
+				
+											<div class="media-body text-right">
+												<h3 id="totalSewingGarments" class="font-weight-semibold mb-0 text-warning">550 pcs</h3>
+												<span class="text-uppercase font-size-sm text-muted">Total Defected Rolls</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-xl-3">
+									<div class="card card-body">
+										<div class="media">
+											<div class="mr-3 align-self-center">
+												<i class="fa-regular fa-circle-xmark fa-3x fa-2x text-danger"></i>
+											</div>
+				
+											<div class="media-body text-right">
+												<h3 id="totalSewingGarments" class="font-weight-semibold mb-0 text-danger">2550 kg</h3>
+												<span class="text-uppercase font-size-sm text-muted">Total Rejected Weight</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-sm-6 col-xl-3">
+									<div class="card card-body">
+										<div class="media">
+											<div class="mr-3 align-self-center">
+												<i class="fa-regular fa-circle-xmark fa-3x fa-2x text-danger"></i>
+											</div>
+				
+											<div class="media-body text-right">
+												<h3 id="totalSewingGarments" class="font-weight-semibold mb-0 text-danger">2 %</h3>
+												<span class="text-uppercase font-size-sm text-muted">Total Process Loss </span>
+											</div>
+										</div>
+									</div>
+								</div>
+			
+								
+							</div>
+						</div>
+	
+						<div class="tab-pane fade " id="tab-cutting">
+							<div class="row">
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-eb6b3d text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-pie"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Cutting QC Defect Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-c679e3 text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-line"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3> Cutting QC Reports</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-tv"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Cutting QC Tv Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-chart-simple"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Cutting QC Summary Dashboard</h3>
+										</div>
+									</div>
+								</a>
+	
+							</div>
+						</div>
+						<div class="tab-pane fade" id="tab-print">
+							<div class="row">
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-eb6b3d text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-pie"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Print QC Defect Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-c679e3 text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-line"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3> Print QC Reports</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-tv"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Print QC Tv Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-chart-simple"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Print QC Summary Dashboard</h3>
+										</div>
+									</div>
+								</a>
+	
+							</div>
+						</div>
+						<div class="tab-pane fade" id="tab-sewing">
+							<div class="row">
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-eb6b3d text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-pie"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Sewing QC Defect Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-c679e3 text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-line"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3> Sewing QC Reports</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-tv"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Sewing QC Tv Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-chart-simple"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Sewing QC Summary Dashboard</h3>
+										</div>
+									</div>
+								</a>
+	
+							</div>
+						</div>
+						<div class="tab-pane fade" id="tab-finishing">
+							<div class="row">
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-eb6b3d text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-pie"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Finishing QC Defect Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-c679e3 text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fas fa-chart-line"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3> Finishing QC Reports</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-tv"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Finishing QC Tv Dashboard</h3>
+										</div>
+									</div>
+								</a>
+				
+								<a href="{{ route('qms-dashboard') }}" class="col-md-3 col-sm-6 mt-3">
+									<div class="single-box bg-f78acb text-dark d-flex justify-content-start">
+										<div class="col-3 m-auto icon-holder">
+											<div class="icon">
+												<i class="fa-solid fa-chart-simple"></i>
+											</div>
+										</div>
+										<div class="col-9">
+											<h3>Finishing QC Summary Dashboard</h3>
+										</div>
+									</div>
+								</a>
+	
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+				<div class="row">
+					<div class="col-sm-6 col-xl-3">
+						<div class="card card-body">
+							<div class="media">
+								<div class="mr-3 align-self-center">
+									<i class="fas fa-cut fa-3x fa-2x text-success"></i>
+								</div>
+	
+								<div class="media-body text-right">
+									<h3 id="totalCuttingGarments" class="font-weight-semibold mb-0 text-success-400">2550 pcs</h3>
+									<span class="text-uppercase font-size-sm text-muted">Failed</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+
+					<div class="col-sm-6 col-xl-3">
+						<div class="card card-body">
+							<div class="media">
+								<div class="mr-3 align-self-center">
+									<i class="fab fa-stripe-s fa-3x fa-2x text-blue"></i>
+								</div>
+	
+								<div class="media-body text-right">
+									<h3 id="totalSewingGarments" class="font-weight-semibold mb-0 ">1454630</h3>
+									<span class="text-uppercase font-size-sm text-muted">Total sewing Garments</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-xl-3">
+						<div class="card card-body">
+							<div class="media">
+								<div class="mr-3 align-self-center">
+									<i class="fa-solid fa-check fa-3x fa-2x text-blue"></i>
+								</div>
+	
+								<div class="media-body text-right">
+									<h3 id="totalSewingGarments" class="font-weight-semibold mb-0 ">1454630</h3>
+									<span class="text-uppercase font-size-sm text-muted">Total finish Garments</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-xl-3">
+						<div class="card card-body">
+							<div class="media">
+								<div class="media-body">
+									<h3 class="font-weight-semibold mb-0">389,438</h3>
+									<span class="text-uppercase font-size-sm text-muted">total orders</span>
+								</div>
+
+								<div class="ml-3 align-self-center">
+									<i class="icon-bag icon-3x text-danger-400"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Main charts -->
+				<div class="row">
+					
+					<div class="col-sm-6 col-xl-4">
+						<div class="card text-center" style="height: 260px;">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-6" style="border-right: 1px solid #C5C5C5">
+										<h6 class="font-weight-semibold mb-0 mt-2 mb-2">Cutting DHU</h6>
+										<div class="progress mx-auto" data-value="7">
+											<span class="progress-left">
+												<span class="progress-bar border-primary"></span>
+											</span>
+											<span class="progress-right">
+												<span class="progress-bar border-primary" style="transform: rotate(25.2deg);"></span>
+											</span>
+											<div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+												<div class="h2 font-weight-bold">7%</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6" >
+										<h6 class="font-weight-semibold mb-0 mt-1 mb-4">Cutting TOP 3 DEFECTS %</h6>
+										<div>
+											<table class="table">
+												<tbody id="cuttingTopThreeDef">
+													<tr>                
+														<td class="text-left text-orange font-weight-bold" style="border: none; font-size:20px">Crease Mark</td>
+														<td class="text-right text-orange font-weight-bold" style="border: none; font-size:20px">0 %</td>
+													</tr>
+													<tr>                
+														<td class="text-left text-orange font-weight-bold" style="border: none; font-size:20px">Dye Spot</td>                
+														<td class="text-right text-orange font-weight-bold" style="border: none; font-size:20px">0 %</td>                
+													</tr>
+													<tr>                
+														<td class="text-left text-orange font-weight-bold" style="border: none; font-size:20px">Fabric Shading</td>                
+														<td class="text-right text-orange font-weight-bold" style="border: none; font-size:20px">0 %</td>                
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									
+									
+								</div>
+							</div>
+						</div>
+	
+					</div>
+					<div class="col-sm-6 col-xl-4">
+						<div class="card text-center" style="height: 260px;">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-6" style="border-right: 1px solid #C5C5C5">
+										<h6 class="font-weight-semibold mb-0 mt-2 mb-2">Sewing DHU</h6>
+										<div class="progress mx-auto" data-value="7">
+											<span class="progress-left">
+												<span class="progress-bar border-primary"></span>
+											</span>
+											<span class="progress-right">
+												<span class="progress-bar border-primary" style="transform: rotate(25.2deg);"></span>
+											</span>
+											<div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+												<div class="h2 font-weight-bold">7%</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-md-6" >
+										<h6 class="font-weight-semibold mb-0 mt-1 mb-4">Sewing TOP 3 DEFECTS %</h6>
+										<div>
+											<table class="table">
+												<tbody id="cuttingTopThreeDef">
+													<tr>                
+														<td class="text-left text-orange font-weight-bold" style="border: none; font-size:20px">Print Fault</td>
+														<td class="text-right text-orange font-weight-bold" style="border: none; font-size:20px">0 %</td>
+													</tr>
+													<tr>                
+														<td class="text-left text-orange font-weight-bold" style="border: none; font-size:20px">Oil Spot</td>                
+														<td class="text-right text-orange font-weight-bold" style="border: none; font-size:20px">0 %</td>                
+													</tr>
+													<tr>                
+														<td class="text-left text-orange font-weight-bold" style="border: none; font-size:20px">Stitch Missing</td>                
+														<td class="text-right text-orange font-weight-bold" style="border: none; font-size:20px">0 %</td>                
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+	
+					</div>
+					<div class="col-sm-6 col-xl-4">
+						<div class="card text-center" style="height: 260px;">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-6" style="border-right: 1px solid #C5C5C5">
+										<h6 class="font-weight-semibold mb-0 mt-2 mb-2">Finishing DHU</h6>
+										<div class="progress mx-auto" data-value="7">
+											<span class="progress-left">
+												<span class="progress-bar border-primary"></span>
+											</span>
+											<span class="progress-right">
+												<span class="progress-bar border-primary" style="transform: rotate(25.2deg);"></span>
+											</span>
+											<div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+												<div class="h2 font-weight-bold">7%</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="col-md-6" >
+										<h6 class="font-weight-semibold mb-0 mt-1 mb-4">Sewing TOP 3 DEFECTS %</h6>
+										<div>
+											<table class="table">
+												<tbody id="cuttingTopThreeDef">
+													<tr>                
+														<td class="text-left text-orange font-weight-bold" style="border: none; font-size:20px">Print Fault</td>
+														<td class="text-right text-orange font-weight-bold" style="border: none; font-size:20px">0 %</td>
+													</tr>
+													<tr>                
+														<td class="text-left text-orange font-weight-bold" style="border: none; font-size:20px">Oil Spot</td>                
+														<td class="text-right text-orange font-weight-bold" style="border: none; font-size:20px">0 %</td>                
+													</tr>
+													<tr>                
+														<td class="text-left text-orange font-weight-bold" style="border: none; font-size:20px">Stitch Missing</td>                
+														<td class="text-right text-orange font-weight-bold" style="border: none; font-size:20px">0 %</td>                
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+	
+					</div>
+					
+					<div class="col-xl-7">
+
+						<!-- Traffic sources -->
+						<div class="card">
+							<div class="card-header header-elements-inline">
+								<h5 class="card-title">Daily Sewing Line Statistics</h5>
+								<div class="header-elements">
+									<div class="form-check form-check-right form-check-switchery form-check-switchery-sm">
+										<label class="form-check-label">
+											Live update:
+											<input type="checkbox" class="form-input-switchery" checked data-fouc>
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="table-responsive">
+								<table class="table text-nowrap">
+									<thead>
+										<tr>
+											<th class="w-30">Line</th>
+											<th>Input Qty</th>
+											<th>Output Qty</th>
+											<th>Reject Qty</th>
+											<th>DHU</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Line-A</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">1200</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1000</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">10</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1 %</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Line-B</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">1200</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1000</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">10</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1 %</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Line-C</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">1200</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1000</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">10</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1 %</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Line-D</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">1200</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1000</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">10</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1 %</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Line-E</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">1200</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1000</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">10</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1 %</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Line-F</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">1200</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1000</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">10</h6>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1 %</h6>
+											</td>
+										</tr>
+
+										
+									</tbody>
+								</table>
+							</div>
+
+							
+						</div>
+						<!-- /traffic sources -->
+
+					</div>
+
+					<div class="col-xl-5">
+
+						<!-- Sales stats -->
+						<div class="card">
+							<div class="card-header header-elements-inline">
+								<h5 class="card-title">Daily Cutting  Table Statistics</h5>
+								<div class="header-elements">
+									<div class="form-check form-check-right form-check-switchery form-check-switchery-sm">
+										<label class="form-check-label">
+											Live update:
+											<input type="checkbox" class="form-input-switchery" checked data-fouc>
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="table-responsive">
+								<table class="table text-nowrap">
+									<thead>
+										<tr>
+											<th class="w-30">Table</th>
+											<th>Bundle Qty</th>
+											<th>Cutting Qty</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Table-01(floor-6)</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">120</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1200</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Table-02(floor-6)</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">120</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1200</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Table-03(floor-6)</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">120</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1200</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Table-04(floor-6)</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">120</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1200</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Table-05(floor-6)</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">120</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1200</h6>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="d-flex align-items-center">
+													<div class="mr-3">
+														<a href="#" class="btn bg-primary-400 rounded-round btn-icon btn-sm">
+															<span class="letter-icon"></span>
+														</a>
+													</div>
+													<div>
+														<a href="#" class="text-default font-weight-semibold letter-icon-title">Table-06(floor-6)</a>
+														
+													</div>
+												</div>
+											</td>
+											<td>
+												<span class=" font-size-sm">120</span>
+											</td>
+											<td>
+												<h6 class="font-weight-semibold mb-0">1200</h6>
+											</td>
+										</tr>
+							
+										
+
+										
+									</tbody>
+								</table>
+							</div>
+
+							
+						</div>
+						<!-- /sales stats -->
+
+					</div>
+				</div>
+				<!-- /main charts -->
+
+
+				
+				<!-- Dashboard content -->
+				
+				
+				<div class="row">
+					
+					<div class="col-xl-8">
+
+						
+
+
+						
+
+							
+
+
+						
+				</div>
+				<!-- /dashboard content -->
+
+			</div>
+			<!-- /content area -->
+
+
+			<!-- Footer -->
+			<div class="navbar navbar-expand-lg navbar-light">
+				<div class="text-center d-lg-none w-100">
+					<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+						<i class="icon-unfold mr-2"></i>
+						Footer
+					</button>
+				</div>
+
+				<div class="navbar-collapse collapse" id="navbar-footer">
+					<span class="navbar-text">
+						&copy; 2015 - 2018. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+					</span>
+
+					<ul class="navbar-nav ml-lg-auto">
+						<li class="nav-item"><a href="https://kopyov.ticksy.com/" class="navbar-nav-link" target="_blank"><i class="icon-lifebuoy mr-2"></i> Support</a></li>
+						<li class="nav-item"><a href="http://demo.interface.club/limitless/docs/" class="navbar-nav-link" target="_blank"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
+						<li class="nav-item"><a href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov" class="navbar-nav-link font-weight-semibold"><span class="text-pink-400"><i class="icon-cart2 mr-2"></i> Purchase</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /footer -->
+
+		</div>
+		<!-- /main content -->
+
+	</div>
+	<!-- /page content -->
+
+</body>
+</html>
